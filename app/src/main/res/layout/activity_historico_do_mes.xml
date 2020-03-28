@@ -20,6 +20,9 @@
         android:id="@+id/lista_gastos_historico"
         android:layout_below="@id/toolbar_historicoDoMes"
         android:layout_above="@id/txtTotalDoMes_historico"
+        android:clickable="false"
+        android:focusable="false"
+        android:listSelector="@android:color/transparent"
         android:layout_margin="10dp"
         />
 
