@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:text="Nome da gasto"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/txt_Nome_conta"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="150dp"
+        android:minHeight="40dp"
+        android:layout_alignParentRight="true"
+        android:text="Preço em R$"
+        android:id="@+id/txt_Preco_conta"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:gravity="center_vertical"
+        android:textAlignment="textEnd"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDataConta"
+        android:text="Dia e mês"
+        android:layout_below="@+id/txt_Preco_conta"
+        android:textAlignment="textEnd"/>
+</RelativeLayout>
