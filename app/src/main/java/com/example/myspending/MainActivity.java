@@ -9,7 +9,9 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.example.myspending.Banco_de_dados.GastosDAO;
 import com.example.myspending.Este_mes.MesAtual;
 import com.example.myspending.Historico.Historico;
 import com.google.android.material.tabs.TabLayout;
@@ -34,6 +36,7 @@ PagerAdapter pagerAdapter;
         setSupportActionBar(toolbar);
         viewPager = (ViewPager)findViewById(R.id.view_pager);
 
+        verificarAno();
         verificaMes();
 
         List<Fragment> fragments = new ArrayList<>();
@@ -59,6 +62,23 @@ PagerAdapter pagerAdapter;
             int mesatual= Integer.parseInt(df.format(new Date()));
             if(mes!=mesatual){
                 sharedPreferences.edit().putInt("mes",Integer.parseInt(df.format(new Date()))).apply();
+            }
+        }
+    }
+
+    public void verificarAno(){
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.example.myspending",Context.MODE_PRIVATE);
+        int ano = sharedPreferences.getInt("ano",0);
+        DateFormat df = new SimpleDateFormat("Y");
+        if(ano==0){
+            sharedPreferences.edit().putInt("ano",Integer.parseInt(df.format(new Date()))).apply();
+        }
+        else {
+            int mesatual= Integer.parseInt(df.format(new Date()));
+            if(ano!=mesatual){
+                sharedPreferences.edit().putInt("ano",Integer.parseInt(df.format(new Date()))).apply();
+                GastosDAO gastosDAO = new GastosDAO(this);
+                gastosDAO.limparTudo();
             }
         }
     }

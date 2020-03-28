@@ -1,4 +1,4 @@
-package com.example.myspending;
+package com.example.myspending.Este_mes;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,9 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.text.DateFormat;
+import com.example.myspending.Gasto;
+import com.example.myspending.R;
+
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class GastoAdapter extends ArrayAdapter {
@@ -21,7 +22,7 @@ private final Context context;
 private final ArrayList<Gasto> gastos;
 
 public GastoAdapter(Context context, ArrayList<Gasto> gastos){
-    super(context,R.layout.layout_gasto, gastos);
+    super(context, R.layout.layout_gasto, gastos);
     this.context=context;
     this.gastos = gastos;
 }

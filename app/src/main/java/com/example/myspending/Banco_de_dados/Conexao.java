@@ -21,4 +21,6 @@ super(context,"My spending database",null,1);
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+
 }

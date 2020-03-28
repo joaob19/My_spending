@@ -19,7 +19,6 @@ import android.widget.TextView;
 import com.example.myspending.Banco_de_dados.GastosDAO;
 import com.example.myspending.DialogCriarConta;
 import com.example.myspending.Gasto;
-import com.example.myspending.GastoAdapter;
 import com.example.myspending.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -28,11 +27,11 @@ import java.util.ArrayList;
 
 
 public class MesAtual extends Fragment implements DialogCriarConta.CriarGastoListener {
-ListView lista_contas;
+ListView lista_gastos;
+GastoAdapter gasto_adapter;
 FloatingActionButton btnAddConta;
-static ArrayList<Gasto> gastos = new ArrayList<>();
+ArrayList<Gasto> gastos = new ArrayList<>();
 TextView txtTotalDoMes,txtMensagem;
-static GastoAdapter conta_adapter;
 GastosDAO gastosDAO;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,15 +39,13 @@ GastosDAO gastosDAO;
         View view =  inflater.inflate(R.layout.fragment_mes_atual, container, false);
 
         gastosDAO = new GastosDAO(getActivity());
-        gastos = new ArrayList<Gasto>(gastosDAO.obterContas());
 
         txtTotalDoMes = (TextView)view.findViewById(R.id.txtTotalDoMes);
         txtMensagem = (TextView)view.findViewById(R.id.txt00);
 
-        conta_adapter= new GastoAdapter(getActivity(), gastos);
-        lista_contas = (ListView)view.findViewById(R.id.listView_MesAtual);
-        lista_contas.setAdapter(conta_adapter);
-        lista_contas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lista_gastos = (ListView)view.findViewById(R.id.listView_MesAtual);
+        carregarGastos();
+        lista_gastos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 final AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
@@ -58,9 +55,9 @@ GastosDAO gastosDAO;
                             public void onClick(DialogInterface dialog, int which) {
                                 gastosDAO.excluirConta(gastos.get(position));
                                 gastos.remove(position);
-                                conta_adapter.notifyDataSetInvalidated();
+                                gasto_adapter.notifyDataSetInvalidated();
                                 calcularGastos();
-                                verificarContas();
+                                verificarGastos();
                             }
                         })
                         .setNegativeButton("NÃO", null);
@@ -77,10 +74,27 @@ GastosDAO gastosDAO;
                 dialog.show(getActivity().getSupportFragmentManager(),"Criar gasto");
             }
         });
-
-        verificarContas();
+        verificarGastos();
         calcularGastos();
         return view;
+    }
+
+    public void carregarGastos(){
+        SharedPreferences sharedPreferences = getActivity().getApplicationContext().getSharedPreferences("com.example.myspending",Context.MODE_PRIVATE);
+        int mesAtual = sharedPreferences.getInt("mes",0);
+        if(mesAtual!=0){
+            gastos = new ArrayList<>();
+            ArrayList<Gasto> todosOSGastos = new ArrayList<Gasto>(gastosDAO.obterContas());
+            if(todosOSGastos.size()>0){
+                for(int i=0;i<todosOSGastos.size();i++){
+                    if(todosOSGastos.get(i).getMes()==mesAtual){
+                        gastos.add(todosOSGastos.get(i));
+                    }
+                }
+                gasto_adapter = new GastoAdapter(getActivity(), gastos);
+                lista_gastos.setAdapter(gasto_adapter);
+            }
+        }
     }
 
 
@@ -98,7 +112,7 @@ GastosDAO gastosDAO;
         }
     }
 
-    public void verificarContas(){
+    public void verificarGastos(){
         if(gastos.size()==0){
             txtMensagem.setText("Seus gastos aparecerão aqui. Para adicionar um gasto clique no botão no canto inferior direito.");
         }
@@ -110,10 +124,8 @@ GastosDAO gastosDAO;
     @Override
     public void salvarGasto(Gasto gasto) {
         gastosDAO.inserirConta(gasto);
-        gastos =new ArrayList<Gasto>(gastosDAO.obterContas());
-        conta_adapter= new GastoAdapter(getActivity(), gastos);
-        lista_contas.setAdapter(conta_adapter);
+        carregarGastos();
+        verificarGastos();
         calcularGastos();
-        verificarContas();
     }
 }

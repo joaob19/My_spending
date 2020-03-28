@@ -63,6 +63,9 @@ public class GastosDAO {
         return gastos;
     }
 
-
+    public void limparTudo(){
+        SQLiteDatabase banco = this.banco;
+        banco.execSQL("delete from gastos");
+    }
 
 }
