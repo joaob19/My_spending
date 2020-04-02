@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Este_mes.MesAtual">
+    tools:context=".Mes_atual.MesAtual">
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/listView_MesAtual"
-        android:layout_above="@id/txtTotalDoMes"
         android:layout_margin="10dp"
         />
 
@@ -24,23 +23,7 @@
         android:backgroundTint="@color/Vermelho"
         android:src="@drawable/ic_add_white"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxWidth="250dp"
-        android:minHeight="20dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/txtTotalDoMes"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_alignParentBottom="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
-    <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/txt00"
-    android:gravity="center"
-    android:layout_centerInParent="true"/>
+
 
 </RelativeLayout>

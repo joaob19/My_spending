@@ -1,12 +1,20 @@
-package com.example.myspending;
+package com.example.myspending.Banco_de_dados;
 
 
 import java.io.Serializable;
 
 public class Gasto implements Serializable {
     private int id,mes;
-    private String nome,data;
+    private String nome,data,categoria;
     private float valor;
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 
     public String getData() {
         return data;

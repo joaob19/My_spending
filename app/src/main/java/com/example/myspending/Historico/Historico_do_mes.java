@@ -9,8 +9,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.myspending.Banco_de_dados.GastosDAO;
-import com.example.myspending.Gasto;
-import com.example.myspending.Este_mes.GastoAdapter;
+import com.example.myspending.Banco_de_dados.Gasto;
+import com.example.myspending.Mes_atual.GastoAdapter;
 import com.example.myspending.R;
 
 import java.text.DecimalFormat;

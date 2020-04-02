@@ -1,4 +1,4 @@
-package com.example.myspending.Este_mes;
+package com.example.myspending.Mes_atual;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.myspending.Gasto;
+import com.example.myspending.Banco_de_dados.Gasto;
 import com.example.myspending.R;
 
 import java.text.DecimalFormat;

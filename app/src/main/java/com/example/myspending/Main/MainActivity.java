@@ -1,4 +1,4 @@
-package com.example.myspending;
+package com.example.myspending.Main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,11 +9,11 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.example.myspending.Banco_de_dados.GastosDAO;
-import com.example.myspending.Este_mes.MesAtual;
+import com.example.myspending.Mes_atual.MesAtual;
 import com.example.myspending.Historico.Historico;
+import com.example.myspending.R;
 import com.google.android.material.tabs.TabLayout;
 
 import java.text.DateFormat;

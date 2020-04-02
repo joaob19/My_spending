@@ -5,8 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.myspending.Gasto;
-
 import java.util.ArrayList;
 
 public class GastosDAO {
@@ -26,6 +24,7 @@ public class GastosDAO {
         values.put("valor", gasto.getValor());
         values.put("mes", gasto.getMes());
         values.put("data", gasto.getData());
+        values.put("categoria", gasto.getCategoria());
         String[] id = new String[]{Integer.toString(gasto.getId())};
         SQLiteDatabase banco = this.banco;
         banco.update("gastos",values,"id=?",id);
@@ -43,12 +42,13 @@ public class GastosDAO {
         values.put("valor", gasto.getValor());
         values.put("mes", gasto.getMes());
         values.put("data", gasto.getData());
+        values.put("categoria", gasto.getCategoria());
         return this.banco.insert("gastos",null,values);
     }
 
     public ArrayList obterContas(){
         ArrayList gastos = new ArrayList();
-        Cursor cursor = banco.query("gastos",new String[]{"id","nome","valor","mes","data"},null,null,null,null,null);
+        Cursor cursor = banco.query("gastos",new String[]{"id","nome","valor","mes","data","categoria"},null,null,null,null,null);
 
         while(cursor.moveToNext()){
             Gasto gasto = new Gasto();
@@ -57,6 +57,7 @@ public class GastosDAO {
             gasto.setValor(cursor.getFloat(2));
             gasto.setMes(cursor.getInt(3));
             gasto.setData(cursor.getString(4));
+            gasto.setCategoria(cursor.getString(5));
             gastos.add(gasto);
         }
 

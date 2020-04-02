@@ -18,4 +18,19 @@
         <item>Novembro</item>
         <item>Dezembro</item>
     </string-array>
+
+    <string-array name="array_categorias">
+        <item>Selecione uma categorias</item>
+        <item>Cartão de crédito</item>
+        <item>Cartão de débito</item>
+        <item>Combustível</item>
+        <item>Educação</item>
+        <item>Gastos domésticos</item>
+        <item>Gastos gerais</item>
+        <item>Mercado</item>
+        <item>Telefonia</item>
+        <item>Transporte público</item>
+        <item>Transporte privado</item>
+        <item>Vestuário</item>
+    </string-array>
 </resources>

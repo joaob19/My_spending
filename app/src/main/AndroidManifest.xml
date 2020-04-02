@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Historico.Historico_do_mes"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".GastosDaCategoria"
+            android:parentActivityName=".Main.MainActivity"></activity>
+        <activity
+            android:name=".Historico.Historico_do_mes"
+            android:parentActivityName=".Main.MainActivity" />
+        <activity android:name=".Main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
