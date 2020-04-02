@@ -20,7 +20,7 @@
     </string-array>
 
     <string-array name="array_categorias">
-        <item>Selecione uma categorias</item>
+        <item>Selecione uma categoria</item>
         <item>Cartão de crédito</item>
         <item>Cartão de débito</item>
         <item>Combustível</item>
