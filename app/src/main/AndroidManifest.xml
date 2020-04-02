@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".GastosDaCategoria"
+        <activity android:name=".Gastos_da_categoria.GastosDaCategoria"
             android:parentActivityName=".Main.MainActivity"></activity>
         <activity
             android:name=".Historico.Historico_do_mes"
