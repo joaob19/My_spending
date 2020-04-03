@@ -35,4 +35,16 @@
         <item>Transporte privado</item>
         <item>Vestuário</item>
     </string-array>
+
+    <string name="Ajuda">
+        \t  Bem vindo(a) a tela inicial do aplicativo.\n
+        \t  Para adicionar um novo gasto clique no botão "+" no canto inferior direito. Ao clicar no botão você deve preencher todos os itens para salvar.\n
+        Na guia "ESTE MÊS" estão as categorias com a soma total dos itens cadastrados nela.
+        Ao clicar sobre uma categorias você poderá ver os gastos inseridos nela. Ao clicar sobre um gasto você
+        terá a opção de excluí-lo.\n
+        \t Na guia "HISTÓRICO", você podera ver seus gastos de cada mês.\n
+        \t  Quando se passar o mês, o aplicativo irá mostrar os gastos daquele mês somente na guia de "HISTÓRICO".\n
+        \t  Aproveite o app!!
+    </string>
+
 </resources>

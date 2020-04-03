@@ -50,7 +50,7 @@ float total_alimentacao=0,total_credito=0,total_debito=0,total_combustivel=0,tot
         lista_gastos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position!=11){
+                if(position<=12){
                     Intent intent = new Intent(getActivity(), GastosDaCategoria.class);
                     switch (position){
                         case 0:
@@ -199,6 +199,8 @@ float total_alimentacao=0,total_credito=0,total_debito=0,total_combustivel=0,tot
                             total_vestuario+=(gastos.get(i).getValor());
                             break;
                     }
+                    categoria_adapter = new CategoriaAdapter(getActivity(),categorias);
+                    lista_gastos.setAdapter(categoria_adapter);
                     total_do_mes+=gastos.get(i).getValor();
                 }
             }

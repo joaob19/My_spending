@@ -1,5 +1,7 @@
 package com.example.myspending.Main;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,8 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.myspending.Banco_de_dados.GastosDAO;
 import com.example.myspending.Mes_atual.MesAtual;
@@ -34,6 +38,7 @@ PagerAdapter pagerAdapter;
 
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.options);
         viewPager = (ViewPager)findViewById(R.id.view_pager);
 
         verificarAno();
@@ -48,6 +53,28 @@ PagerAdapter pagerAdapter;
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setText("Esse mês");
         tabLayout.getTabAt(1).setText("Histórico");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.options, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.Ajuda:
+                AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Ajuda")
+                        .setMessage(R.string.Ajuda)
+                        .setPositiveButton("ok",null);
+                adb.show();
+                break;
+        }
+
+        return false;
     }
 
     public void verificaMes(){

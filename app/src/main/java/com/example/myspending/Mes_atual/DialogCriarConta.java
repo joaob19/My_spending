@@ -41,8 +41,8 @@ public class DialogCriarConta extends DialogFragment {
         spinner_categorias.setAdapter(adapter);
 
         builder.setView(view);
-        builder.setTitle("Inserir gasto");
-        builder.setPositiveButton("INSERIR", new DialogInterface.OnClickListener() {
+        builder.setTitle("Salvar um gasto");
+        builder.setPositiveButton("SALVAR", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if ((txtNome.getText().toString().length() > 0) && (txtValor.getText().toString().length() > 0)&&(spinner_categorias.getSelectedItem().toString().equalsIgnoreCase("Selecione uma categorias")==false)) {
