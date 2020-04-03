@@ -100,6 +100,9 @@ public class GastosDaCategoria extends AppCompatActivity {
 
     public void verificaMes(){
         switch (categoriaAtual){
+            case "Alimentação":
+                getSupportActionBar().setTitle("Alimentação");
+                break;
             case "Cartão de crédito":
                 getSupportActionBar().setTitle("Cartão de crédito");
                 break;
@@ -120,6 +123,9 @@ public class GastosDaCategoria extends AppCompatActivity {
                 break;
             case "Mercado":
                 getSupportActionBar().setTitle("Mercado");
+                break;
+            case "Saúde":
+                getSupportActionBar().setTitle("Saúde");
                 break;
             case "Telefonia":
                 getSupportActionBar().setTitle("Telefonia");

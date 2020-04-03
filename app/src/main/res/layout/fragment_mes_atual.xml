@@ -10,20 +10,28 @@
         android:layout_height="match_parent"
         android:id="@+id/listView_MesAtual"
         android:layout_margin="10dp"
+        android:layout_above="@id/btnAddGasto"
         />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/txtTotaldoMes"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/btnAddGasto"
+        android:background="@color/Vermelho"
+        android:gravity="center"
+        android:minWidth="150dp"
+        android:textColor="@color/Branco" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/btnAddGasto"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/Vermelho"
+        android:background="@color/Vermelho"
         android:src="@drawable/ic_add_white"/>
-
-
 
 
 </RelativeLayout>

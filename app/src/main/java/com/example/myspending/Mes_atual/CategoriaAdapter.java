@@ -40,6 +40,9 @@ public CategoriaAdapter(Context context, ArrayList<Categoria> categorias){
         nome.setText(categorias.get(position).getNome());
         total.setText("R$ "+df.format(categorias.get(position).getTotal_da_categoria()));
         switch (categorias.get(position).getNome()){
+            case "Alimentação":
+                icone.setImageResource(R.drawable.ic_alimentacao);
+                break;
             case "Cartão de crédito":
                 icone.setImageResource(R.drawable.ic_credito);
                 break;
@@ -60,6 +63,9 @@ public CategoriaAdapter(Context context, ArrayList<Categoria> categorias){
                 break;
             case "Mercado":
                 icone.setImageResource(R.drawable.ic_mercado);
+                break;
+            case "Saúde":
+                icone.setImageResource(R.drawable.ic_saude);
                 break;
             case "Telefonia":
                 icone.setImageResource(R.drawable.ic_telefonia);

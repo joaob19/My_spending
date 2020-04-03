@@ -21,6 +21,7 @@
 
     <string-array name="array_categorias">
         <item>Selecione uma categoria</item>
+        <item>Alimentação</item>
         <item>Cartão de crédito</item>
         <item>Cartão de débito</item>
         <item>Combustível</item>
@@ -28,6 +29,7 @@
         <item>Gastos domésticos</item>
         <item>Gastos gerais</item>
         <item>Mercado</item>
+        <item>Saúde</item>
         <item>Telefonia</item>
         <item>Transporte público</item>
         <item>Transporte privado</item>
