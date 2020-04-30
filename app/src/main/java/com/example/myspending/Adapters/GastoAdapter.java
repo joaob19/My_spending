@@ -1,4 +1,4 @@
-package com.example.myspending.Mes_atual;
+package com.example.myspending.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

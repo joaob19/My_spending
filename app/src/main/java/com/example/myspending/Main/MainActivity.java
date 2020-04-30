@@ -13,11 +13,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.example.myspending.Ativos.MeusAtivos;
 import com.example.myspending.Banco_de_dados.GastosDAO;
 import com.example.myspending.Mes_atual.MesAtual;
 import com.example.myspending.Historico.Historico;
 import com.example.myspending.R;
+import com.example.myspending.Relatorio.RelatorioDoMes;
 import com.google.android.material.tabs.TabLayout;
 
 import java.text.DateFormat;
@@ -46,13 +49,17 @@ PagerAdapter pagerAdapter;
 
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new MesAtual());
+        fragments.add(new MeusAtivos());
+        fragments.add(new RelatorioDoMes());
         fragments.add(new Historico());
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),fragments);
         viewPager.setAdapter(pagerAdapter);
         tabLayout = (TabLayout)findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setText("Esse mês");
-        tabLayout.getTabAt(1).setText("Histórico");
+        tabLayout.getTabAt(0).setText("Meus gastos");
+        tabLayout.getTabAt(1).setText("Meus ativos");
+        tabLayout.getTabAt(2).setText("Relatório do mês");
+        tabLayout.getTabAt(3).setText("Histórico");
     }
 
     @Override

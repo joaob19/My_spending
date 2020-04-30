@@ -15,6 +15,7 @@ super(context,"My spending database",null,1);
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table gastos(id integer primary key,nome varchar(50),valor float,mes integer,data varchar(20),categoria varchar(50))");
+        db.execSQL("create table ativos(id integer primary key, nome varchar(50),valor float)");
     }
 
     @Override

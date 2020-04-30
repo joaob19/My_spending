@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNomeAtivo"
+        android:inputType="textCapWords|textCapSentences"
+        android:hint="Nome do seu ativo"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtValorAtivo"
+        android:inputType="numberDecimal"
+        android:digits="0123456789."
+        android:hint="Valor do seu ativo"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

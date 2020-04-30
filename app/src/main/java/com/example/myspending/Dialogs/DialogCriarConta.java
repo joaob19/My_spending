@@ -1,4 +1,4 @@
-package com.example.myspending.Mes_atual;
+package com.example.myspending.Dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

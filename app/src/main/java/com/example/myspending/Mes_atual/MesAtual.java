@@ -12,16 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.myspending.Adapters.CategoriaAdapter;
 import com.example.myspending.Banco_de_dados.GastosDAO;
 import com.example.myspending.Banco_de_dados.Gasto;
+import com.example.myspending.Dialogs.DialogCriarConta;
 import com.example.myspending.Gastos_da_categoria.GastosDaCategoria;
 import com.example.myspending.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -43,7 +43,6 @@ float total_alimentacao=0,total_credito=0,total_debito=0,total_combustivel=0,tot
         View view =  inflater.inflate(R.layout.fragment_mes_atual, container, false);
 
         gastosDAO = new GastosDAO(getActivity());
-
         txtTotalDoMes = (TextView)view.findViewById(R.id.txtTotaldoMes);
 
         lista_gastos = (ListView)view.findViewById(R.id.listView_MesAtual);
@@ -120,6 +119,7 @@ float total_alimentacao=0,total_credito=0,total_debito=0,total_combustivel=0,tot
     }
 
     public void iniciarCategorias(){
+        categorias = new ArrayList<Categoria>();
         Categoria alimentacao= new Categoria("Alimentação",total_alimentacao);
         Categoria cartao_credito= new Categoria("Cartão de crédito",total_credito);
         Categoria cartao_débito= new Categoria("Cartão de débito",total_debito);
