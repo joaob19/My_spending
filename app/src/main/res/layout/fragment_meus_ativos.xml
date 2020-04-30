@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:id="@+id/listview_ativos"
         android:layout_margin="10dp"
-        android:layout_above="@id/btnAddGasto"
+        android:layout_above="@id/btnAddAtivo"
         />
 
     <TextView
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@id/btnAddGasto"
+        android:layout_toLeftOf="@id/btnAddAtivo"
         android:background="@color/Vermelho"
         android:text="Total de ativos = R$ 0.00"
         android:gravity="center"
