@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtNome"
         android:hint="Com o que você gastou?"
+        android:inputType="textCapSentences|textCapWords"
         android:layout_marginHorizontal="16dp"
         />
 
