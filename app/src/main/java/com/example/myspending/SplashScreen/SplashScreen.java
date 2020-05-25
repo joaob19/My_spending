@@ -23,11 +23,6 @@ public class SplashScreen extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setNavigationBarColor(getResources().getColor(R.color.Vermelho));
-            getWindow().setStatusBarColor(getResources().getColor(R.color.Vermelho));
-        }
-
         setContentView(R.layout.activity_splash_screen);
         new Handler().postDelayed(new Runnable(){
             @Override

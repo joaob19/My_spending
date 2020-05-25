@@ -43,11 +43,6 @@ PagerAdapter pagerAdapter;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setNavigationBarColor(getResources().getColor(R.color.Vermelho));
-            getWindow().setStatusBarColor(getResources().getColor(R.color.Vermelho));
-        }
-
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.options);
