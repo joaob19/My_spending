@@ -10,10 +10,14 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.myspending.Ativos.MeusAtivos;
 import com.example.myspending.Banco_de_dados.GastosDAO;
@@ -38,6 +42,11 @@ PagerAdapter pagerAdapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.Vermelho));
+            getWindow().setStatusBarColor(getResources().getColor(R.color.Vermelho));
+        }
 
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);

@@ -45,7 +45,7 @@ public class DialogCriarConta extends DialogFragment {
         builder.setPositiveButton("SALVAR", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if ((txtNome.getText().toString().length() > 0) && (txtValor.getText().toString().length() > 0)&&(spinner_categorias.getSelectedItem().toString().equalsIgnoreCase("Selecione uma categorias")==false)) {
+                if ((txtNome.getText().toString().length() > 0) && (txtValor.getText().toString().length() > 0)&&(spinner_categorias.getSelectedItem().toString().equalsIgnoreCase("Selecione uma categoria")==false)) {
                     float valor = Float.parseFloat(txtValor.getText().toString());
                     DateFormat df = new SimpleDateFormat("MM");
                     if (valor > 0) {
@@ -57,6 +57,9 @@ public class DialogCriarConta extends DialogFragment {
                         DateFormat dateFormat = new SimpleDateFormat("d,MMM");
                         gasto.setData(dateFormat.format(new Date()));
                         listener.salvarGasto(gasto);
+                    }
+                    else{
+                        Toast.makeText(getActivity(), "Você precisa informar um custo maior que zero para salvar.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(getActivity(), "Você precisa preencher todos os campos para continuar", Toast.LENGTH_SHORT).show();

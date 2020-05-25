@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Gastos_da_categoria.GastosDaCategoria"
-            android:parentActivityName=".Main.MainActivity"></activity>
+        <activity android:name=".Main.MainActivity"></activity>
+        <activity
+            android:name=".Gastos_da_categoria.GastosDaCategoria"
+            android:parentActivityName=".Main.MainActivity" />
         <activity
             android:name=".Historico.Historico_do_mes"
             android:parentActivityName=".Main.MainActivity" />
-        <activity android:name=".Main.MainActivity">
+        <activity android:name=".SplashScreen.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

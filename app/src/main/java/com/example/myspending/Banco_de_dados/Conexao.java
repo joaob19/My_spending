@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class Conexao extends SQLiteOpenHelper {
 public static final String nome="My spending database";
-public static  final int versao=1;
+public static  final int versao=2;
 
 public Conexao(Context context){
 super(context,nome,null,versao);
@@ -22,7 +22,7 @@ super(context,nome,null,versao);
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("create table if not exists ativos(id integer primary key, nome varchar(50),valor float)");
     }
 
 
