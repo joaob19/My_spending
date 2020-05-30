@@ -31,4 +31,5 @@
         android:text="Total em R$"
         android:textAlignment="viewEnd" />
 
+
 </RelativeLayout>
