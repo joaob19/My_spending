@@ -77,10 +77,10 @@ float total_alimentacao=0,total_credito=0,total_debito=0,total_combustivel=0,tot
                             intent.putExtra("categoria","Mercado");
                             break;
                         case 8:
-                            intent.putExtra("categoria","Telefonia");
+                            intent.putExtra("categoria","Saúde");
                             break;
                         case 9:
-                            intent.putExtra("categoria","Saúde");
+                            intent.putExtra("categoria","Telefonia");
                             break;
                         case 10:
                             intent.putExtra("categoria","Transporte público");
