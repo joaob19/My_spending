@@ -19,7 +19,7 @@ import com.example.myspending.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Historico extends Fragment {
+public class Historicos extends Fragment {
 
 ListView lista_TodosOsMeses;
 ArrayAdapter<CharSequence> adapter_meses;

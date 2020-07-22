@@ -3,17 +3,22 @@ package com.example.myspending.Historico;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myspending.Banco_de_dados.GastosDAO;
 import com.example.myspending.Banco_de_dados.Gasto;
 import com.example.myspending.Adapters.GastoAdapter;
+import com.example.myspending.Dialogs.DialogHistorico;
 import com.example.myspending.R;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Historico_do_mes extends AppCompatActivity {
@@ -23,7 +28,8 @@ public class Historico_do_mes extends AppCompatActivity {
     TextView txtTotalDoMes,txtMensagem;
     Toolbar toolbar;
     GastosDAO gastosDAO;
-    int mesAtual=0;
+    int mes =0;
+    Button btnMostrarRegistro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +41,31 @@ public class Historico_do_mes extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        mesAtual = intent.getIntExtra("mes",0);
+        mes = intent.getIntExtra("mes",0);
         verificarMes();
 
         gastosDAO = new GastosDAO(this);
 
         lista_gastos = (ListView)findViewById(R.id.lista_gastos_historico);
         carregarGastos();
-        txtTotalDoMes = (TextView)findViewById(R.id.txtTotalDoMes_historico);
         txtMensagem = (TextView)findViewById(R.id.txt01);
-        calcularGastos();
         verificarGastos();
+
+        btnMostrarRegistro = findViewById(R.id.btnMostrarRegistro);
+        btnMostrarRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.example.myspending", Context.MODE_PRIVATE);
+                int mesAtual = sharedPreferences.getInt("mes",0);
+                if(mes>=mesAtual){
+                    Toast.makeText(Historico_do_mes.this, "Você só pode consultar relatórios de meses que já passaram.", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    DialogHistorico dialog = new DialogHistorico(mes);
+                    dialog.show(getSupportFragmentManager(),"Criar gasto");
+                }
+            }
+        });
 
     }
 
@@ -58,27 +78,13 @@ public class Historico_do_mes extends AppCompatActivity {
         }
     }
 
-    public void calcularGastos(){
-        if((gastos !=null)&&(gastos.size()>0)){
-            float total=0;
-            DecimalFormat df = new DecimalFormat("0.00");
-            for(int i = 0; i< gastos.size(); i++){
-                total+= gastos.get(i).getValor();
-            }
-            txtTotalDoMes.setText("Gastos desse mês = R$ "+df.format(total));
-        }
-        else{
-            txtTotalDoMes.setText(" ");
-        }
-    }
-
     public void carregarGastos(){
-        if(mesAtual!=0){
+        if(mes !=0){
             gastos = new ArrayList<>();
             ArrayList<Gasto> todosOSGastos = new ArrayList<Gasto>(gastosDAO.obterContas());
             if(todosOSGastos.size()>0){
                 for(int i=0;i<todosOSGastos.size();i++){
-                    if(todosOSGastos.get(i).getMes()==mesAtual){
+                    if(todosOSGastos.get(i).getMes()== mes){
                         gastos.add(todosOSGastos.get(i));
                     }
                 }
@@ -89,7 +95,7 @@ public class Historico_do_mes extends AppCompatActivity {
     }
 
     public void verificarMes(){
-        switch (mesAtual){
+        switch (mes){
             case 1:
                 getSupportActionBar().setTitle("Janeiro");
                 break;

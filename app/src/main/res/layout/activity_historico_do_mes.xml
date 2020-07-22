@@ -19,24 +19,22 @@
         android:layout_height="match_parent"
         android:id="@+id/lista_gastos_historico"
         android:layout_below="@id/toolbar_historicoDoMes"
-        android:layout_above="@id/txtTotalDoMes_historico"
+        android:layout_above="@id/btnMostrarRegistro"
         android:clickable="false"
         android:focusable="false"
         android:listSelector="@android:color/transparent"
         android:layout_margin="10dp"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxWidth="250dp"
-        android:minHeight="20dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/txtTotalDoMes_historico"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="10dp"
+        android:id="@+id/btnMostrarRegistro"
+        android:backgroundTint="@color/Vermelho"
+        android:text="Mostrar relatório completo"
+        android:textColor="@color/Branco"
         android:layout_alignParentBottom="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:layout_centerInParent="true"/>
 
     <TextView
         android:layout_width="wrap_content"
