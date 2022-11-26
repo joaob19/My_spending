@@ -1,4 +1,4 @@
-# My_spending
+# My spending
 
 Esse projeto entrega uma solução para controle de despesas pessoais podendo caluclar as despesas de todos os meses e um total anual.
 
